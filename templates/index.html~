@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}IOL Cloud SAAS PAAS IAAS{% endblock %}
+{% block title %}IOL Cloud SAAS PAAS IAAS Artificial Intelligence Machine Learning{% endblock %}
 {% block content %}
 
   <!-- ======= Hero Section ======= -->
@@ -65,6 +65,13 @@
             <p>                 
              SaaS, PaaS, and IaaS are the three primary models of cloud computing services, each offering a different level of management and control. Infrastructure as a Service (IaaS) provides on-demand access to fundamental IT resources like servers, storage, and networking, giving you the most control over your virtual infrastructure. Platform as a Service (PaaS) offers a complete development and deployment environment in the cloud, managing the underlying hardware and software so developers can focus solely on building and running their applications. Finally, Software as a Service (SaaS) delivers ready-to-use software applications over the internet, where the provider manages everything from the software itself to the infrastructure it runs on, offering the ultimate convenience for end-users.
             </p>
+            </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <img src="/assets/img/saas-paas-iaas.png" class="img-fluid" alt="SaaS, PaaS, IaaS">
+            </div>
+            </div>
+            <div class="row content">
+            <div class="col-lg-6">
             <h2>Artificial Intelligence, Machine Learning</h2>
             <p>
             Artificial Intelligence (AI) is the broad field of computer science dedicated to creating machines that can perform tasks that typically require human intelligence, such as visual perception, decision-making, and understanding language. Machine Learning (ML) is a significant and powerful subset of AI. Instead of being explicitly programmed, ML uses algorithms to analyze vast amounts of data, identify patterns, and make predictions or decisions. Essentially, machine learning is the process that allows a computer system to learn and improve from experience, enabling the development of its intelligence and powering most modern AI applications, from virtual personal assistants to self-driving cars.
