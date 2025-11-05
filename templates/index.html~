@@ -82,7 +82,6 @@
             
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <img src="/assets/img/saas-paas-iaas.png" class="img-fluid" alt="SaaS, PaaS, IaaS">
             <img src="/assets/img/machine-learning-ai.png" class="img-fluid" alt="Machine Learning and Artificial Intelligence" style="margin-top: 15px;">            
           </div>
         </div>
