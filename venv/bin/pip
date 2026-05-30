@@ -1,4 +1,4 @@
-#!/home/javier/iolcloud-render/venv/bin/python
+#!/home/javier/iolcloud-render/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
