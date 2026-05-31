@@ -42,14 +42,18 @@ def contact():
         email = request.form['email']
         subject = request.form['subject']
         message = request.form['message']
-        captcha_response = request.form['g-recaptcha-response']
-    
+        captcha_response = request.form.get('g-recaptcha-response', '')
+
         if not is_human(captcha_response):
-            # Log invalid attempts
-            status = "Sorry ! Please Check Im not a robot."
-            flash(status, "warning")
-            return render_template('contact.html', sitekey=sitekey)
-        else:    
+            flash("Sorry! Please check 'I'm not a robot'.", "warning")
+            session['form_data'] = {
+            'name': name,
+            'email': email,
+            'subject': subject,
+            'message': message
+            }
+            
+        else:
             #send contact mail
             html = "<html><head></head><body>"
             html += "<p>Name: " + name + "</p>"
@@ -58,7 +62,7 @@ def contact():
             message = "<br />".join(message.split("\n"))
             html += "<p>Message: <br /><br />" + message + "</p>"
             html += "</body></html>"
-        
+
             body = html
             email_username = app.config['MAIL_USERNAME']
             sender_email = app.config['MAIL_DEFAULT_SENDER']
@@ -86,10 +90,10 @@ def contact():
             server.login(email_username, password)
             server.sendmail(sender_email, receiver_email, message.as_string())
             server.quit()
-        
+
             return render_template('contact-form-sent.html')
-    
-    return render_template('contact.html', sitekey=sitekey)
+
+    return render_template('contact.html', sitekey=sitekey, form_data={})
   
 if __name__ == '__main__':
   app.run()
