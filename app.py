@@ -37,6 +37,8 @@ def index():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     sitekey = app.config['RECAPTCHA_SITE_KEY']
+    form_data = session.pop('form_data', {})
+
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
@@ -45,14 +47,10 @@ def contact():
         captcha_response = request.form.get('g-recaptcha-response', '')
 
         if not is_human(captcha_response):
-            flash("Sorry! Please check 'I'm not a robot'.", "warning")
-            session['form_data'] = {
-            'name': name,
-            'email': email,
-            'subject': subject,
-            'message': message
-            }
-            
+            flash("Sorry! Please check 'I'm not a robot'.", 'warning')
+            session['form_data'] = {'name': name, 'email': email, 'subject': subject, 'message': message}
+            return redirect(url_for('contact'))
+
         else:
             #send contact mail
             html = "<html><head></head><body>"
@@ -93,7 +91,7 @@ def contact():
 
             return render_template('contact-form-sent.html')
 
-    return render_template('contact.html', sitekey=sitekey, form_data={})
+    return render_template('contact.html', sitekey=sitekey, form_data=form_data)
   
 if __name__ == '__main__':
   app.run()
